@@ -1,0 +1,70 @@
+﻿@model BaiTap5.Models.SendMailModel
+
+@{
+    ViewBag.Title = "Index";
+}
+
+
+
+@using (Html.BeginForm("SendMail", "Ntu", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <style>
+        th, td {
+            padding: 8px;
+            text-align: left;
+            font-weight: bold
+        }
+
+        .meow {
+        }
+    </style>
+    <h2>CHỨC NĂNG GỬI MAIL</h2>
+    <table>
+        <tr class="rows">
+            <td style="width: 100px;">
+                Gửi từ Email:
+            </td>
+            <td>@Html.TextBoxFor(model => model.From)</td>
+        </tr>
+        <tr>
+            <td>
+                Mật khẩu:
+            </td>
+            <td>@Html.TextBoxFor(model => model.Password)</td>
+        </tr>
+        <tr>
+            <td>
+                Gửi đến email:
+            </td>
+            <td>@Html.TextBoxFor(model => model.To)</td>
+        </tr>
+        <tr>
+            <td>
+                Tiêu đề:
+            </td>
+            <td>@Html.TextBoxFor(model => model.Subject)</td>
+        </tr>
+        <tr>
+            <td style="">
+                Nội dung:
+            </td>
+            <td class="meow">@Html.TextAreaFor(model => model.Body, new { style = "height: 200px; width:200px;" })</td>
+        </tr>
+        <tr>
+            <td></td>
+            <td>
+                <input type="submit" value="Gửi email" />
+            </td>
+        </tr>
+
+    </table>
+    <span style="color: forestgreen">@ViewBag.Message</span>
+
+
+
+}
+
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

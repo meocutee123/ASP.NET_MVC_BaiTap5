@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "Banner";
+}
+
+<h2>THAY ĐỔI BANNER</h2>
+@using (Html.BeginForm("Banner", "Ntu", FormMethod.Post, new { enctype = "multipart/form-data" }))
+{
+    <div>
+        <p>Chọn ảnh làm banner.</p><br />
+        <input type="file" name="imgFile" required />
+        <input type="submit" value="Thay đổi"/><br />
+        <Strong style="color: forestgreen">@ViewBag.Message</Strong>
+    </div>
+}
+
+
